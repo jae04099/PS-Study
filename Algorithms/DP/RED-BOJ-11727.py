@@ -28,3 +28,33 @@ print(s[n] % 10007)
 #             dp.append(nCr(int(n - i/2 - sq/2), int(i/2), sq))
 
 # print(sum(dp)%10007)
+"""
+2x8
+
+2x2 정
+1x2  가로
+2x1  세로
+
+0 0 8 index:0
+0 2 6 index:2 => n-index/2 = 7, sq = 0, 
+0 4 4
+0 6 2
+0 8 0
+1 0 6 => 7! / 1! 6!
+1 2 4 index:2 => n-index/2-sq/2 = 6, sq=1, r= index/2, n-r = 4
+
+...
+
+3 0 2 index:0 => n-index/2-sq = 8 - 3 = 5
+3 2 0 index:2 => n-index/2-sq = 8 - 1 - 3 = 4
+
+4 0 0 index:0 => n - 4 = 4
+
+
+
+2x2
+
+0 0 2
+0 2 0
+1 0 0
+"""
