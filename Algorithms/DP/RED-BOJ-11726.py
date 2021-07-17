@@ -1,4 +1,4 @@
-n = 9
+n = int(input())
 
 #import itertools
 import operator as op
@@ -20,7 +20,5 @@ for i in range(n+1):
         dp.append(nCr(int(i/2 + n - i), int(i/2)))
         # vertical = n - i
         #dp.append(len(list(itertools.combinations(range(1, int(i/2 + n - i)+ 1), int(i/2)))))
-
-print(dp)
 
 print(sum(dp)%10007)
