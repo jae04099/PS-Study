@@ -7,3 +7,4 @@ for i in range(n):
         dp[j] = dp[j - 2] + dp[j - 3]
     print(dp[test - 1])
 
+# 간단한 점화식을 지님
