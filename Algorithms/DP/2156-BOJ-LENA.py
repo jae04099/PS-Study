@@ -18,7 +18,6 @@ i = 3
 while i <= n:
     dp[i] += max(lists[i - 1] + lists[i - 3], lists[i - 2] + lists[i - 3])
 
-
 print(dp)
 
 # https://www.acmicpc.net/board/view/60664
