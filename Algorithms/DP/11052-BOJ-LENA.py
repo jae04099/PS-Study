@@ -16,8 +16,27 @@
 # 우선 경우의 수를 구하려면 1, 2, 3, 4를 이용해서 4를 만들 수 있는 경우의 수를 구해야 할 것.
 # 그 안에서 수를 비교?
 
-n = int(input())
-cards = list(map(int, input().split()))
-dp = [0] * n
-for i in range(n):
-    for j in range(i)
+# n = int(input())
+# cards = list(map(int, input().split()))
+# dp = [0] * n
+# dp[1] = cards[1]
+# dp[2] = max(dp[1] + cards[1], cards[2])
+# for i in range(3, n):
+#     dp[i] = max(cards[i], dp[i - 1] + dp[i - 2])
+# print(dp[n - 1])
+
+#======================================================
+# dp[1] = 1
+# dp[2] = 1 + 1, 2
+# dp[3] = 1 + 1 + 1, 2 + 1, 3
+# dp[4] = 1 + 1 + 1 + 1, 2 + 1 + 1 + 1, 2 + 2, 3 + 1, 4
+n = int(input()) 
+p = list(map(int, input().split())) 
+dp = [0]*(n+1) 
+for i in range(1, n+1): 
+    for j in range(1, i+1): 
+        dp[i] = max(dp[i], dp[i-j]+p[j-1]) 
+print(dp[n])
+
+#https://today-retrospect.tistory.com/47
+# 1, 1, 1, 1, 1같은 경우는 이미 계산이 된 것으로 생각하면 된다는게 이해가 안감
