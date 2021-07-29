@@ -1,3 +1,4 @@
+# a, b, c ... z = 1, 2, 3 ... 26
 import sys
 input = sys.stdin.readline
 a = list(input().strip())
