@@ -35,4 +35,14 @@ print(sum(a))
 
 output:31
 answer:28
+
+반례2)
+4
+
+4
+5
+5
+5
+
+answer:45
 '''
