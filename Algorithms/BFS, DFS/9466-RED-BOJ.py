@@ -32,7 +32,7 @@ def dfs(x):
     
     if visited[number]: #방문가능한 곳이 끝났는지
         if number in cycle: #사이클 가능 여부
-            result += cycle[cycle.index(number):] #사이클 되는 구간 부터만 팀을 이룸
+            result += cycle[cycle.index(number):] #사이클 되는 구간 부터만 팀을 이룸 !!  이게 포인트
         return
     else:
         dfs(number)
