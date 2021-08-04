@@ -1,7 +1,6 @@
 n, p = map(int, input().split())
 
 d = [0 for _ in range(1000)]
-# d[0] = 0
 d[1] = n
 answers = [d[1]]
 deleted = []
