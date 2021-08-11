@@ -21,7 +21,6 @@ while True:
     if w == 0 and h == 0:
         break
     a = [list(map(int, input().split())) for _ in range(h)]
-    cnt = 0
     answer = []
 
     for i in range(h): # 행
