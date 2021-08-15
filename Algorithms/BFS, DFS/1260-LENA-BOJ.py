@@ -65,13 +65,42 @@
 #                 queue.append(i)
 #                 visited[i] = 1
 
-import collections
+# import collections
 
+# n, m, v = map(int, input().split())
+# matrix = [[0] * (n + 1) for _ in range(n + 1)]
+# visited = [0] * (n + 1)
+
+# #  다음 M개의 줄에는 간선이 연결하는 두 정점의 번호가 주어진다
+# for i in range(m):
+#     a, b = map(int, input().split())
+#     matrix[a][b] = matrix[b][a] = 1
+
+# def dfs(v):
+#     visited[v] = 1
+#     print(v, end=' ')
+#     for i in range(1, n + 1):
+#         if visited[i] == 0 and matrix[v][i] == 1:
+#             dfs(i)
+
+# def bfs(v):
+#     queue = collections.deque
+#     queue.append(v)
+#     visited[v] = 1
+#     while queue:
+#         v = queue.popleft()
+#         print(v, end=' ')
+#         for i in range(1, n + 1):
+#             if visited[i] == 0 and matrix[v][i] == 1:
+#                 queue.append(i)
+#                 visited[i] = 1
+
+
+
+from collections import deque
 n, m, v = map(int, input().split())
-matrix = [[0] * (n + 1) for _ in range(n + 1)]
 visited = [0] * (n + 1)
-
-#  다음 M개의 줄에는 간선이 연결하는 두 정점의 번호가 주어진다
+matrix = [[0] * (n + 1) for _ in range(n + 1)]
 for i in range(m):
     a, b = map(int, input().split())
     matrix[a][b] = matrix[b][a] = 1
@@ -84,9 +113,10 @@ def dfs(v):
             dfs(i)
 
 def bfs(v):
-    queue = collections.deque
+    queue = deque()
     queue.append(v)
     visited[v] = 1
+
     while queue:
         v = queue.popleft()
         print(v, end=' ')
@@ -94,3 +124,9 @@ def bfs(v):
             if visited[i] == 0 and matrix[v][i] == 1:
                 queue.append(i)
                 visited[i] = 1
+dfs(v)
+print()
+visited = [0] * (n + 1)
+bfs(v)
+
+
