@@ -170,44 +170,104 @@
 # print(answ - 1)
 
 
+# from collections import deque
+# m, n = map(int, input().split())
+# queue = deque([])
+# matrix = [map(int, input().split()) for _ in range(n)]
+
+# for i in range(n):
+#     for j in range(m):
+#         if matrix[i][j] == 1:
+#             queue.append([i, j])
+
+# dx = [-1, 1, 0, 0]
+# dy = [0, 0, -1, 1]
+
+# def bfs():
+#     while queue:
+#         x, y = queue.popleft()
+#         for i in range(4):
+#             a = dx[i] + x
+#             b = dy[i] + y
+#             if 0 <= a < n and 0 <= b < m and matrix[a][b] == 0:
+#                 queue.append([a, b])
+#                 matrix[a][b] = matrix[x][y] + 1
+
+# bfs()
+# ans = 0
+# for i in matrix:
+#     for j in i:
+#         if j == 0:
+#             print(-1)
+#             exit(0)
+
+#     ans = max(ans, max(i))
+# print(ans - 1)
+
+
+#==0816============================================>
+
+# from collections import deque
+
+# m, n = map(int, input().split())
+# queue = deque([n])
+# matrix = [list(map(int, input().split())) for _ in range(n)]
+# dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
+# res = 0
+
+# for i in range(n):
+#     for j in range(m):
+#         if matrix[i][j] == 1:
+#             queue.append([i, j])
+
+# def bfs():
+#     while queue:
+#         x, y = queue.popleft()
+#         for i in range(4):
+#             a, b = dx[i] + x, dy[i] + y
+#             if 0 <= a < n and 0 <= b < m and matrix[a][b] == 0:
+#                 queue.append([a, b])
+#                 matrix[a][b] = matrix[x][y] + 1
+
+# bfs()
+# for i in matrix:
+#     for j in i:
+#         if j == 0:
+#             print(-1)
+#             exit(0)
+#             # res가 처음엔 0인데 이건 모든 토마토가 익어있는 상태일 때 0을 출력해야하기 때문임
+#     res = max(res, max(i))
+# print(res - 1)
+
+#==================================================
+
 from collections import deque
+
 m, n = map(int, input().split())
+matrix = [list(map(int, input().split())) for _ in range(n)]
 queue = deque([])
-matrix = [map(int, input().split()) for _ in range(n)]
+dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
+res = 0
 
 for i in range(n):
     for j in range(m):
         if matrix[i][j] == 1:
             queue.append([i, j])
 
-dx = [-1, 1, 0, 0]
-dy = [0, 0, -1, 1]
-
 def bfs():
     while queue:
         x, y = queue.popleft()
         for i in range(4):
-            a = dx[i] + x
-            b = dy[i] + y
-            if 0 <= a < n and 0 <= b < m and matrix[a][b] == 0:
-                queue.append([a, b])
-                matrix[a][b] = matrix[x][y] + 1
+            nx, ny = dx[i] + x, dy[i] + y
+            if 0 <= nx < n and 0 <= ny < m and matrix[nx][ny] == 0:
+                matrix[nx][ny] = matrix[x][y] + 1
+                queue.append([nx, ny])
 
 bfs()
-ans = 0
 for i in matrix:
     for j in i:
         if j == 0:
             print(-1)
             exit(0)
-
-    ans = max(ans, max(i))
-print(ans - 1)
-
-
-
-
-
-
-
-
+    res = max(res, max(i))
+print(res - 1)
