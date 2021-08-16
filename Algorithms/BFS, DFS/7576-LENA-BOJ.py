@@ -241,6 +241,8 @@
 
 #==================================================
 
+# bfs 특 queue 사용하기
+# deque 모듈 안쓰면 시간복잡도 박살남(pop(0)이 시간복잡도가 O(n)이고 popleft()가 O(1)이라고 함)
 from collections import deque
 
 m, n = map(int, input().split())
@@ -254,6 +256,7 @@ for i in range(n):
         if matrix[i][j] == 1:
             queue.append([i, j])
 
+# bfs 함수. 한번 들어가면 다 돌고 나오니까 재귀 할 필요 없음
 def bfs():
     while queue:
         x, y = queue.popleft()
