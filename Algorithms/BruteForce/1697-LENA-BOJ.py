@@ -40,22 +40,44 @@
 
 
 
+# from collections import deque
+
+# def bfs():
+#     q = deque()
+#     q.append(n)
+#     while q:
+#         x = q.popleft()
+#         if x == k:
+#             print(res_arr[x])
+#             break
+#         for nx in(x - 1, x + 1, 2 * n):
+#             # 0 == False
+#             if 0 < nx <= MAX and not res_arr[nx]:
+#                 res_arr[nx] = res_arr[x] + 1
+#                 q.append(nx)
+
+# MAX = 10**5
+# res_arr = [0] * (MAX + 1)
+# n, k = map(int, input().split())
+
+
 from collections import deque
 
-def bfs():
+def dfs():
     q = deque()
     q.append(n)
     while q:
         x = q.popleft()
         if x == k:
-            print(res_arr[x])
+            print(res_list[x])
             break
-        for nx in(x - 1, x + 1, 2 * n):
-            # 0 == False
-            if 0 < nx <= MAX and not res_arr[nx]:
-                res_arr[nx] = res_arr[x] + 1
+        for nx in (x + 1, x - 1, 2 * x):
+            if 0 < nx <= MAX and not res_list[nx]:
+                res_list[nx] = res_list[x] + 1
                 q.append(nx)
 
-MAX = 10**5
-res_arr = [0] * (MAX + 1)
 n, k = map(int, input().split())
+MAX = 10**5
+res_list = [0] * (MAX + 1)
+
+dfs()
