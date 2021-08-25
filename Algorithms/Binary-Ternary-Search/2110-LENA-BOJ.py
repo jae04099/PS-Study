@@ -18,7 +18,6 @@ while start <= end:
             wifi = lists[i] + mid
     if cnt >= c:
         start = mid + 1
-
     else:
         end = mid - 1
 print(end)
